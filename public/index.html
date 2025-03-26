@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gemini AI Text Generator</title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 20px auto; }
+    textarea { width: 100%; height: 100px; margin: 10px 0; }
+    button { padding: 10px 20px; background: #0070f3; color: white; border: none; cursor: pointer; }
+    #output { border: 1px solid #ddd; padding: 10px; min-height: 100px; }
+  </style>
+</head>
+<body>
+  <h1>Gemini AI Text Generator</h1>
+  <textarea id="input" placeholder="Enter your text here..."></textarea>
+  <button onclick="generateText()">Generate</button>
+  <div id="output">Response will appear here...</div>
+
+  <script>
+    async function generateText() {
+      const input = document.getElementById("input").value;
+      const output = document.getElementById("output");
+      output.textContent = "Loading...";
+
+      try {
+        const response = await fetch("/api/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: input })
+        });
+        const { text } = await response.json();
+        output.textContent = text;
+      } catch (error) {
+        output.textContent = "Error: " + error.message;
+      }
+    }
+  </script>
+</body>
+</html>
