@@ -2,80 +2,16 @@
 <html>
 <head>
   <title>Study Guide Converter</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1a1a1a;
-      color: #ff69b4;
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .container {
-      max-width: 600px;
-      width: 90%;
-      margin: 20px auto;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      opacity: 0.8;
-    }
-    textarea {
-      width: 100%;
-      padding: 15px;
-      margin: 15px 0;
-      background-color: #333;
-      border: 2px solid #ff69b4;
-      border-radius: 8px;
-      color: #ff69b4;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    button {
-      padding: 12px 30px;
-      background-color: #ff1493;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background-color 0.3s;
-      margin: 10px;
-    }
-    button:hover {
-      background-color: #ff0066;
-    }
-    #output {
-      width: 100%;
-      min-height: 150px;
-      padding: 15px;
-      margin: 20px 0;
-      background-color: #333;
-      border: 2px solid #ff69b4;
-      border-radius: 8px;
-      color: #ff69b4;
-      text-align: left;
-      white-space: pre-wrap;
-    }
-    .copy-btn {
-      background-color: #ff69b4;
-      padding: 8px 20px;
-      font-size: 0.9rem;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Study guide -> Quizlet</h1>
+    <h1>Study guide → Quizlet</h1>
     <div class="subtitle">Made for Leah</div>
     
     <textarea id="input" placeholder="Paste your study guide here..."></textarea>
@@ -107,8 +43,17 @@
     function copyOutput() {
       const output = document.getElementById("output");
       navigator.clipboard.writeText(output.textContent)
-        .then(() => alert('Copied to clipboard!'))
-        .catch(err => alert('Failed to copy!'));
+        .then(() => {
+          const copyBtn = document.querySelector('.copy-btn');
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => {
+            copyBtn.textContent = 'Copy All';
+          }, 2000);
+        })
+        .catch(err => {
+          alert('Failed to copy!');
+          console.error('Copy failed:', err);
+        });
     }
   </script>
 </body>
