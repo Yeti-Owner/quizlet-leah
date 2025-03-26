@@ -48,13 +48,13 @@ body {
   
   textarea:focus {
     outline: none;
-    border-color: #ff1493;
+    border-color: #ff69b4; 
     box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
   }
   
   button {
     padding: 12px 30px;
-    background-color: #ff1493;
+    background-color: #ff69b4;
     color: white;
     border: none;
     border-radius: 8px;
@@ -67,7 +67,7 @@ body {
   }
   
   button:hover {
-    background-color: #ff0066;
+    background-color: #ff4785; 
     transform: translateY(-2px);
   }
   
