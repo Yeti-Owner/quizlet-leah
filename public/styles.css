@@ -19,14 +19,18 @@ body {
   }
   
   h1 {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #ffb3d9, #9fdf9f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     margin-bottom: 2rem;
     opacity: 0.8;
     font-weight: 400;
@@ -48,8 +52,8 @@ body {
   
   textarea:focus {
     outline: none;
-    border-color: #ff69b4; 
-    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+    border-color: #9fdf9f;
+    box-shadow: 0 0 0 3px rgba(159, 223, 159, 0.2);
   }
   
   button {
@@ -67,7 +71,7 @@ body {
   }
   
   button:hover {
-    background-color: #ff4785; 
+    background-color: #9fdf9f;
     transform: translateY(-2px);
   }
   
@@ -97,11 +101,11 @@ body {
   
   @media (max-width: 480px) {
     h1 {
-      font-size: 2rem;
+      font-size: 2.4rem;
     }
     
     .subtitle {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
     
     button {
