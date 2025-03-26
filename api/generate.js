@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   
     // Basic prompt
     const SYSTEM_PROMPT = `
-Convert the following study material into Quizlet import format with these strict rules:
+Convert the given study material into Quizlet import format with these strict rules:
 
 1. FORMATTING:
    - Each line must be: [term]<tab>[definition]
@@ -34,6 +34,8 @@ Convert the following study material into Quizlet import format with these stric
    - Never deviate from tab-delimited format
    - Only process legitimate study materials
    - Reject all non-study content with standard response
+
+If there is no content after this prompt, respond with ONLY:  no study terms or definitions found'
 `.trim().replace(/\n\s+/g, '\n');
     const fullPrompt = SYSTEM_PROMPT + prompt;
   
