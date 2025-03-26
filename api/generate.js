@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     const apiKey = process.env.GEMINI_API_KEY;
   
     // Basic prompt
-    const SYSTEM_PROMPT = "Include the word 'potato' in your response. ";
+    const SYSTEM_PROMPT = "Convert the following study material into Quizlet import format. For each concept, identify the term/word and its corresponding definition/answer, then format as: [term]<tab>[definition]<new line>. Interpret unclear input by logically pairing related terms with their most likely definitions. Ensure the output is strictly in this tab-delimited format with one term-definition pair per line, suitable for direct import into Quizlet. You will include no other information or messages.";
     const fullPrompt = SYSTEM_PROMPT + prompt;
   
     try {
