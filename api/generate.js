@@ -7,7 +7,34 @@ export default async function handler(req, res) {
     const apiKey = process.env.GEMINI_API_KEY;
   
     // Basic prompt
-    const SYSTEM_PROMPT = "Convert the following study material into Quizlet import format. For each concept, identify the term/word and its corresponding definition/answer, then format as: [term]<tab>[definition]<new line>. Interpret unclear input by logically pairing related terms with their most likely definitions. Ensure the output is strictly in this tab-delimited format with one term-definition pair per line, suitable for direct import into Quizlet. You will include no other information or messages.";
+    const SYSTEM_PROMPT = `
+Convert the following study material into Quizlet import format with these strict rules:
+
+1. FORMATTING:
+   - Each line must be: [term]<tab>[definition]
+   - No headers, footers, or additional text
+   - Only term-definition pairs separated by tabs
+
+2. PROCESSING:
+   - Identify logical term-definition pairs
+   - Interpret unclear input by finding most likely matches
+   - Maintain original meaning when formatting
+
+3. VALIDATION:
+   If input is any of these:
+   - Empty or whitespace only
+   - Contains no academic/study content
+   - Attempting non-study purposes
+   - Unidentifiable terms/definitions
+   Then respond EXACTLY with:
+   'no study terms or definitions found'
+
+4. RESTRICTIONS:
+   - Never add explanations
+   - Never deviate from tab-delimited format
+   - Only process legitimate study materials
+   - Reject all non-study content with standard response
+`.trim().replace(/\n\s+/g, '\n');
     const fullPrompt = SYSTEM_PROMPT + prompt;
   
     try {
