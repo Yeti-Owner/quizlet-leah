@@ -4,7 +4,7 @@
 
 Quizlet Leah is a web application that transforms rough study notes, guides, and information into a Quizlet-friendly format with just a few clicks! Powered by Google's Gemini AI, this tool helps students quickly convert their study materials.
 
-![Quizlet Leah Demo](./assets/example.png)
+![Quizlet Leah Demo](./public/assets/example.png)
 
 ## 🌟 Features
 
