@@ -19,6 +19,7 @@ Convert the given study material into Quizlet import format with these strict ru
    - Identify logical term-definition pairs
    - Interpret unclear input by finding most likely matches
    - Maintain original meaning when formatting
+   - If multiple definitions link to the same term, combine them into one definition for one term.
 
 3. VALIDATION:
    If input is any of these:
